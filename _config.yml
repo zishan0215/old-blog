@@ -8,9 +8,9 @@ permalink:        pretty
 # Setup
 title:            Zishan Ahmad
 tagline:          ''
-description:      'A peronal blog'
+description:      ''
 url:              http://zishanahmad.github.io/blog/
-baseurl:          /blog 
+baseurl:          http://zishanahmad.github.io/blog/
 
 author:
   name:           'Zishan Ahmad'
