@@ -1,0 +1,25 @@
+# Dependencies
+markdown:         redcarpet
+pygments:         true
+
+# Permalinks
+permalink:        pretty
+
+# Setup
+title:            Zishan Ahmad
+tagline:          ''
+description:      'A peronal blog'
+url:              http://zishanahmad.github.io/blog/
+baseurl:          http://zishanahmad.github.io/blog/ 
+
+author:
+  name:           'Zishan Ahmad'
+  url:            https://twitter.com/ahmad_zishan
+
+paginate:         5
+
+# Custom vars
+version:          2.0.0
+
+github:
+  repo:           https://github.com/zishanAhmad
