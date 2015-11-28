@@ -9,7 +9,7 @@ permalink:        pretty
 title:            Zishan Ahmad
 tagline:          ''
 description:      'A peronal blog'
-url:              http://zishanahmad.github.io/blog/
+# url:              http://zishanahmad.github.io/blog/
 baseurl:          http://zishanahmad.github.io/blog/ 
 
 author:
