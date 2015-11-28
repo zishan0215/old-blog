@@ -3,7 +3,7 @@ markdown:         redcarpet
 pygments:         true
 
 # Permalinks
-permalink:        /blog/:title
+permalink:        /blog/:year/:month/:day/:title/
 
 # Setup
 title:            Zishan Ahmad
