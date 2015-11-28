@@ -10,7 +10,7 @@ title:            Zishan Ahmad
 tagline:          ''
 description:      ''
 url:              http://zishanahmad.github.io/blog/
-baseurl:          http://zishanahmad.github.io/blog/
+baseurl:          /blog/
 
 author:
   name:           'Zishan Ahmad'
