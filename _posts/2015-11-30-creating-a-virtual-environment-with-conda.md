@@ -3,7 +3,6 @@ layout: post
 title: Creating a Virtual Environment with Conda
 ---
 
-Hello there!
 I was creating a virtual environment to be used for the next django project (Inventory Management System) when i realised 
 that i was using python 2! This has to change now. I need to be using Python 3!
 
