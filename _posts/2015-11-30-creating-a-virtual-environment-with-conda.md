@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Creating a Virtual Environment with Conda
+comments: true
 ---
 
 I was creating a virtual environment to be used for the next django project (Inventory Management System) when i realised 
