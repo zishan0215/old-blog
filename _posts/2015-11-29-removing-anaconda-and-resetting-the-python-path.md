@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Removing Anaconda and resetting the Python path
+comments: true
 ---
 
 Installing Anaconda on a linux machine comes with a price, you loose the default python path and use 
