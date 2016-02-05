@@ -23,6 +23,14 @@
 
       <div class="container content">
         {{ content }}
+
+        {% include comments.html %}
+
+        <div class="footer">
+          <p>
+            &copy; {{ site.time | date: '%Y' }}. All rights reserved.
+          </p>
+        </div>
       </div>
     </div>
 
