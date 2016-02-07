@@ -49,7 +49,7 @@ image in the image object, we use the `cv::imread` function.
 image = cv::imread("img.jpg");
 ```
 
-To check if the image has been correctly or not, type
+To check if the image has been correctly read or not, type
 
 ```
 if(!image.data) {
@@ -68,7 +68,6 @@ Before we go into the further details of the `cv::Mat` class, lets quickly make 
 [imread.cpp](https://github.com/zishanAhmad/opencv/blob/master/imread.cpp) and add the  following contents:
 
 ```  
-{% raw %}
 #include <iostream>
 #include <opencv2/opencv.hpp>
 
@@ -94,7 +93,6 @@ int main(int argc, char** argv) {
 
     return 0;
 }
-{% end raw %}
 ```
 
 I will use the same steps to compile this program as i described in my previous 
@@ -130,8 +128,10 @@ between two instance of them by having their matrix pointers point to the same a
 will only copy the headers and the pointer to the large matrix, not the data itself.
 
 ```
-Mat A, C;                               // creates just the header parts
-A = imread(argv[1], IMREAD_COLOR);      // here we'll know the method used (allocate matrix)
+Mat A, C;                               // creates just the 
+                                        // header parts
+A = imread(argv[1], IMREAD_COLOR);      // here we'll know the 
+                                        // method used (allocate matrix)
 Mat B(A);                               // Use the copy constructor
 C = A;                                  // Assignment operator
 ```
@@ -139,3 +139,100 @@ C = A;                                  // Assignment operator
 All the above objects, in the end, point to the same single data matrix. Their headers are different, however, and 
 making a modification using any of them will affect all the other ones as well.
 
+If you do not want the reference but instead want to copy the matrix itself too, then the `cv::Mat::clone()` and 
+`cv::Mat::copyTo()` functions need to be used.
+
+```
+Mat F = A.clone();
+Mat G;
+A.copyTo(G);
+```
+
+When you do a `clone` or a `copyTo`, the images are independent of each other and changing one won't affect the other.
+
+Till now we've seen how to read images. Now let's see how to modify and save images. The 
+[program](https://github.com/zishanAhmad/opencv/blob/master/grayscale.cpp) below transforms an image from BGR to 
+Grayscale format by using `cv::cvtColor`
+
+```
+#include <iostream>
+#include <opencv2/opencv.hpp>
+
+int main(int argc, char** argv) {
+	if (argc != 2) {
+        std::cout<<"usage: ./grayscale <Image_Path>"<<std::endl;
+        return -1;
+    }
+
+    cv::Mat image;
+    image = cv::imread(argv[1]);
+
+    if (!image.data) {
+        std::cout<<"No image data"<<std::endl;
+        return -1;
+    }
+
+	cv::Mat gray_image;
+	
+	cv::cvtColor(image, gray_image, cv::COLOR_BGR2GRAY);
+	
+	cv::imwrite("../images/Gray_Image.jpg", gray_image);
+	
+	cv::namedWindow("Original image", cv::WINDOW_AUTOSIZE);
+	cv::namedWindow("Gray image", cv::WINDOW_AUTOSIZE);
+	
+	cv::imshow("Original image", image);
+	cv::imshow("Gray image", gray_image);
+	
+	cv::waitKey(0);
+	
+	return 0;
+}
+```
+
+I saved this program as `grayscale.cpp` and then compiled it by typing in the terminal the following command
+
+```
+python make.py grayscale
+```
+
+To run the program, type
+
+```
+grayscale/grayscale images/room.jpg
+```
+
+The program produces an output as follows
+
+![Grayscale image](/blog/assets/2.png)
+
+In the above program, the image is read using the `cv::imread` function. In order to convert the image to grayscale,
+i used the `cv::cvtColor` function
+
+```
+cvtColor(image, gray_image, COLOR_BGR2GRAY);
+```
+
+The `cv::cvtColor` takes three arguments: a source image, a destination image and an additional parameter that indicates
+what kind of transformation will be performed.
+
+Now that i have the grayscale image, the only thing left is to write the image and save it. To do that, the 
+`cv::imwrite` function is used.
+
+```
+imwrite("../images/Gray_Image.jpg", gray_image);
+```
+
+Finally, the images are displayed first by creating the windows and then by passing the images to those windows.
+
+```
+cv::namedWindow("Original image", cv::WINDOW_AUTOSIZE);
+cv::namedWindow("Gray image", cv::WINDOW_AUTOSIZE);
+
+cv::imshow("Original image", image);
+cv::imshow("Gray image", gray_image);
+```
+
+So in this tutorial, we learnt the basics of OpenCV, what it is, what is has to offer. Then we moved on the reading 
+images and then modifying ans saving the new images. In the next tutorial, i will go through some more manipulation 
+of images so that we get more comfortable with handling images.

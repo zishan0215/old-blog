@@ -107,3 +107,6 @@ script again and only need to compile the program. First go the folder by typing
 
 I have just begun my journey with OpenCV and this is the first among many more posts coming up in the future. Feel free
 to comment below for any suggestions or doubts.
+
+[Update]  
+Check out my new post: [Getting started with OpenCV Part 1](http://zishanahmad.github.io/blog/2016/02/07/getting-started-with-opencv-1/)
