@@ -88,7 +88,15 @@ def make_it(name):
 	text += "target_link_libraries(" + name + " ${OpenCV_LIBS})\n"
 	with open("CMakeLists.txt", 'w') as f:
 		f.write(text)
-	os.system("mkdir " + name + " && cd " + name + " && cmake .. && make")
+
+	# Check if the folder already exists. If it does, then remove the folder
+	if os.path.isdir(name):
+		ans = input("'" + name+"' already exsists. Would you like to remove it? (y/n): ")
+		if ans == 'y':
+			os.system("rm -r " + name)
+			os.system("mkdir " + name + " && cd " + name + " && cmake .. && make")
+		else:
+			print("Cannot continue. Please remove the directory named '" + name + "' first")
 
 
 if __name__ == '__main__':

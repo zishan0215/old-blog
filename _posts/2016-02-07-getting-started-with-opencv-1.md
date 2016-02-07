@@ -234,5 +234,5 @@ cv::imshow("Gray image", gray_image);
 ```
 
 So in this tutorial, we learnt the basics of OpenCV, what it is, what is has to offer. Then we moved on the reading 
-images and then modifying ans saving the new images. In the next tutorial, i will go through some more manipulation 
+images and then modifying and saving the new images. In the next tutorial, i will go through some more manipulation 
 of images so that we get more comfortable with handling images.
