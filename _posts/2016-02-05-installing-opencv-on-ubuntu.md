@@ -97,6 +97,8 @@ def make_it(name):
 			os.system("mkdir " + name + " && cd " + name + " && cmake .. && make")
 		else:
 			print("Cannot continue. Please remove the directory named '" + name + "' first")
+	else:
+		os.system("mkdir " + name + " && cd " + name + " && cmake .. && make")
 
 
 if __name__ == '__main__':
